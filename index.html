@@ -38,7 +38,7 @@
         
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 70px;
+            scroll-padding-top: 80px;
         }
         
         body {
@@ -50,7 +50,6 @@
             flex-direction: column;
             min-height: 100vh;
             transition: background-color 0.3s ease, color 0.3s ease;
-            font-size: 14px;
         }
         
         /* DARK MODE VARIABLES */
@@ -164,27 +163,27 @@
             border-color: #6366f1;
         }
         
-        /* CONTAINER RESPONSIF - REAL TIME */
+        /* CONTAINER RESPONSIF */
         .container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 20px;
         }
         
         @media (min-width: 640px) {
-            .container {
-                padding: 0 24px;
-            }
-        }
-        
-        @media (min-width: 1024px) {
             .container {
                 padding: 0 32px;
             }
         }
         
-        /* HEADER - DIPERKECIL UNTUK MOBILE */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+        }
+        
+        /* HEADER */
         .site-header {
             background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(12px);
@@ -194,9 +193,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            transition: background 0.3s ease, padding 0.2s ease;
+            transition: background 0.3s ease;
         }
         
         @media (min-width: 768px) {
@@ -209,14 +208,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 4px;
+            flex-wrap: nowrap;
+            gap: 6px;
         }
         
         .logo {
             display: flex;
             align-items: center;
             gap: 6px;
+            flex-shrink: 0;
         }
         
         .logo i {
@@ -244,6 +244,7 @@
             font-weight: 800;
             color: white;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
         
         .logo span {
@@ -262,13 +263,13 @@
             }
         }
         
-        /* NAVIGASI ICON-ONLY - UKURAN DIPERKECIL */
+        /* NAVIGASI ICON-ONLY */
         .nav-links {
             display: flex;
             gap: 4px;
             font-weight: 600;
             align-items: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         
         @media (min-width: 768px) {
@@ -301,6 +302,14 @@
             }
         }
         
+        @media (min-width: 1024px) {
+            .nav-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+        
         .nav-icon:hover {
             background: rgba(165, 180, 252, 0.15);
             color: #a5b4fc;
@@ -312,7 +321,42 @@
             background: rgba(165, 180, 252, 0.25);
         }
         
-        /* TOMBOL KOMUNITAS - UKURAN DIPERKECIL */
+        @media (min-width: 1024px) {
+            .nav-icon {
+                position: relative;
+            }
+            
+            .nav-icon::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.8);
+                background: #0f172a;
+                color: white;
+                font-size: 11px;
+                font-weight: 500;
+                padding: 4px 10px;
+                border-radius: 20px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.2s ease;
+                pointer-events: none;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                border: 1px solid rgba(255,255,255,0.1);
+                letter-spacing: 0.3px;
+            }
+            
+            .nav-icon:hover::after {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) scale(1);
+                bottom: -36px;
+            }
+        }
+        
+        /* TOMBOL KOMUNITAS */
         .btn-community {
             background: #6366f1;
             width: 36px;
@@ -327,6 +371,7 @@
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             -webkit-tap-highlight-color: transparent;
             position: relative;
+            flex-shrink: 0;
         }
         
         @media (min-width: 768px) {
@@ -337,10 +382,18 @@
             }
         }
         
+        @media (min-width: 1024px) {
+            .btn-community {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+        
         .btn-community:hover {
             background: #4f52e0;
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 6px 12px -4px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 8px 16px -6px rgba(99, 102, 241, 0.5);
         }
         
         .btn-community:active {
@@ -351,7 +404,7 @@
             display: none;
         }
         
-        /* SWITCH TOGGLE DARK/LIGHT - UKURAN DIPERKECIL */
+        /* SWITCH TOGGLE DARK/LIGHT */
         .theme-switch {
             display: flex;
             align-items: center;
@@ -372,6 +425,7 @@
             transition: all 0.25s ease;
             -webkit-tap-highlight-color: transparent;
             font-size: 16px;
+            flex-shrink: 0;
         }
         
         @media (min-width: 768px) {
@@ -379,6 +433,14 @@
                 width: 42px;
                 height: 42px;
                 font-size: 18px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
             }
         }
         
@@ -405,7 +467,7 @@
             color: #fcd34d;
         }
         
-        /* MENU TOGGLE (MOBILE) - UKURAN DIPERKECIL */
+        /* MENU TOGGLE (MOBILE) */
         .menu-toggle {
             display: none;
             background: rgba(255, 255, 255, 0.08);
@@ -420,6 +482,15 @@
             cursor: pointer;
             transition: all 0.25s ease;
             -webkit-tap-highlight-color: transparent;
+            flex-shrink: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-toggle {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
         }
         
         .menu-toggle:hover {
@@ -435,19 +506,6 @@
             transform: rotate(90deg);
         }
         
-        /* HEADER RIGHT GROUP - TIDAK BERDEMPETAN */
-        .header-right {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-        
-        @media (min-width: 768px) {
-            .header-right {
-                gap: 10px;
-            }
-        }
-        
         /* DROPDOWN MENU */
         .dropdown-menu {
             display: none;
@@ -455,11 +513,11 @@
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 12px;
             margin-top: 12px;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 16px 24px -8px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 35px -8px rgba(0,0,0,0.3);
             animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transform-origin: top;
         }
@@ -467,7 +525,7 @@
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-16px) scale(0.98);
+                transform: translateY(-20px) scale(0.98);
             }
             to {
                 opacity: 1;
@@ -482,19 +540,19 @@
         .dropdown-item {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             padding: 12px 16px;
             color: #f1f5f9;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
-            border-radius: 14px;
+            border-radius: 16px;
             transition: all 0.2s ease;
             -webkit-tap-highlight-color: transparent;
         }
         
         .dropdown-item i {
-            width: 22px;
+            width: 20px;
             color: #a5b4fc;
             font-size: 16px;
             text-align: center;
@@ -503,41 +561,25 @@
         .dropdown-item:hover {
             background: rgba(165, 180, 252, 0.12);
             color: white;
-            padding-left: 24px;
+            padding-left: 20px;
         }
         
-        /* RESPONSIVE - REAL TIME */
+        .dropdown-item:active {
+            background: rgba(165, 180, 252, 0.2);
+            transform: scale(0.98);
+        }
+        
+        /* RESPONSIVE */
         @media (max-width: 480px) {
             .logo h1 {
                 font-size: 16px;
             }
             .logo span {
-                font-size: 11px;
+                font-size: 10px;
             }
-            .nav-icon, .btn-community, .theme-toggle, .menu-toggle {
-                width: 34px;
-                height: 34px;
-                font-size: 15px;
-            }
-            .header-right {
-                gap: 4px;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .logo h1 {
-                font-size: 14px;
-            }
-            .logo span {
-                display: none;
-            }
-            .nav-icon, .btn-community, .theme-toggle, .menu-toggle {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-            .header-right {
-                gap: 2px;
+            .logo i {
+                font-size: 18px;
+                padding: 5px;
             }
         }
         
@@ -545,12 +587,24 @@
             .header-flex {
                 flex-wrap: nowrap;
             }
+            
             .nav-links {
                 display: none;
             }
+            
             .menu-toggle {
                 display: flex;
             }
+            
+            .btn-community {
+                margin-left: auto;
+                margin-right: 2px;
+            }
+            
+            .theme-switch {
+                margin-right: 2px;
+            }
+            
             html {
                 scroll-padding-top: 60px;
             }
@@ -561,15 +615,18 @@
                 display: flex;
                 gap: 4px;
             }
+            
             .nav-icon {
                 width: 38px;
                 height: 38px;
-                font-size: 17px;
+                font-size: 16px;
             }
+            
             .btn-community, .theme-toggle {
                 width: 38px;
                 height: 38px;
             }
+            
             .menu-toggle {
                 display: none;
             }
@@ -578,19 +635,21 @@
         @media (min-width: 1024px) {
             .nav-links {
                 display: flex;
+                gap: 8px;
             }
+            
             .menu-toggle {
                 display: none;
             }
         }
         
-        /* HERO SECTION - DIPERKECIL */
+        /* HERO SECTION */
         .hero {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             margin-top: 20px;
-            padding: 20px 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+            padding: 24px 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.02);
             border: 1px solid #e9eef3;
             display: flex;
             flex-wrap: wrap;
@@ -602,10 +661,10 @@
         
         @media (min-width: 768px) {
             .hero {
-                border-radius: 28px;
-                margin-top: 32px;
-                padding: 32px;
-                gap: 32px;
+                border-radius: 32px;
+                margin-top: 30px;
+                padding: 40px;
+                gap: 30px;
             }
         }
         
@@ -617,9 +676,9 @@
             background: #eef2ff;
             color: #4f52e0;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 60px;
+            font-size: 10px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -637,7 +696,7 @@
         }
         
         .hero h2 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 12px;
@@ -647,7 +706,7 @@
         
         @media (min-width: 768px) {
             .hero h2 {
-                font-size: 32px;
+                font-size: 36px;
                 margin-bottom: 16px;
             }
         }
@@ -675,21 +734,21 @@
         
         @media (min-width: 768px) {
             .hero-image {
-                flex: 0 0 200px;
+                flex: 0 0 220px;
             }
         }
         
         .hero-image img {
             width: 100%;
-            border-radius: 14px;
-            box-shadow: 0 10px 20px -6px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12);
         }
         
-        /* SECTION TITLE - DIPERKECIL */
+        /* SECTION TITLE */
         .section-title {
             font-size: 20px;
             font-weight: 700;
-            margin: 32px 0 16px 0;
+            margin: 30px 0 16px 0;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -699,9 +758,9 @@
         
         @media (min-width: 768px) {
             .section-title {
-                font-size: 26px;
+                font-size: 28px;
                 margin: 48px 0 24px 0;
-                gap: 10px;
+                gap: 12px;
             }
         }
         
@@ -736,25 +795,25 @@
             }
         }
         
-        /* GRID BLOG CARD - RESPONSIF REAL TIME */
+        /* GRID BLOG CARD */
         .blog-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
+            gap: 20px;
+            margin-bottom: 30px;
         }
         
-        @media (min-width: 480px) {
+        @media (min-width: 640px) {
             .blog-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
+                gap: 24px;
             }
         }
         
-        @media (min-width: 900px) {
+        @media (min-width: 1024px) {
             .blog-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 24px;
+                gap: 28px;
                 margin-bottom: 48px;
             }
         }
@@ -762,8 +821,8 @@
         .blog-card {
             background: white;
             border-radius: 20px;
-            padding: 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
             border: 1px solid #ecf1f7;
             transition: all 0.25s;
             display: flex;
@@ -774,23 +833,29 @@
         @media (min-width: 768px) {
             .blog-card {
                 border-radius: 24px;
-                padding: 22px;
+                padding: 24px;
             }
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: #c7d2fe;
+            box-shadow: 0 20px 28px -10px rgba(99, 102, 241, 0.08);
         }
         
         .card-img {
             width: 100%;
-            height: 140px;
+            height: 160px;
             border-radius: 14px;
             overflow: hidden;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         
         @media (min-width: 768px) {
             .card-img {
-                height: 160px;
+                height: 180px;
                 border-radius: 16px;
-                margin-bottom: 16px;
+                margin-bottom: 18px;
             }
         }
         
@@ -811,22 +876,23 @@
             gap: 4px;
             font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             color: #6366f1;
             font-weight: 700;
             margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
         
         @media (min-width: 768px) {
             .card-category {
                 font-size: 11px;
-                letter-spacing: 1px;
+                letter-spacing: 1.2px;
                 gap: 6px;
             }
         }
         
         .blog-card h2 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 800;
             margin-bottom: 10px;
             line-height: 1.3;
@@ -836,7 +902,7 @@
         
         @media (min-width: 768px) {
             .blog-card h2 {
-                font-size: 18px;
+                font-size: 20px;
                 margin-bottom: 12px;
             }
         }
@@ -884,7 +950,7 @@
             background: #6366f1;
             color: white;
             padding: 10px 16px;
-            border-radius: 50px;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
             font-size: 13px;
@@ -892,6 +958,7 @@
             border: none;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            width: fit-content;
         }
         
         @media (min-width: 768px) {
@@ -915,12 +982,12 @@
             transform: translateX(4px);
         }
         
-        /* INFO SECTION - DIPERKECIL */
+        /* INFO SECTION */
         .info-section {
             background: linear-gradient(145deg, #f8fafc, #f1f5f9);
             border-radius: 24px;
             padding: 24px 20px;
-            margin: 32px 0;
+            margin: 30px 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -932,15 +999,15 @@
         
         @media (min-width: 768px) {
             .info-section {
-                border-radius: 36px;
-                padding: 36px;
+                border-radius: 40px;
+                padding: 40px;
                 margin: 40px 0;
                 gap: 28px;
             }
         }
         
         .info-text h3 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
             margin-bottom: 8px;
             display: flex;
@@ -952,7 +1019,7 @@
         
         @media (min-width: 768px) {
             .info-text h3 {
-                font-size: 26px;
+                font-size: 28px;
                 margin-bottom: 10px;
             }
         }
@@ -975,12 +1042,12 @@
             display: flex;
             gap: 16px;
             background: white;
-            padding: 14px 20px;
-            border-radius: 50px;
+            padding: 12px 20px;
+            border-radius: 60px;
             border: 1px solid #e2e8f0;
             width: 100%;
             justify-content: space-around;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             transition: background 0.3s ease, border 0.3s ease;
         }
         
@@ -992,6 +1059,10 @@
             }
         }
         
+        .stats-item {
+            text-align: center;
+        }
+        
         .stats-number {
             font-size: 20px;
             font-weight: 800;
@@ -1001,11 +1072,11 @@
         
         @media (min-width: 768px) {
             .stats-number {
-                font-size: 26px;
+                font-size: 28px;
             }
         }
         
-        /* LINK SECTION - DIPERKECIL */
+        /* LINK SECTION */
         .link-section {
             background: #f8fafc;
             border-radius: 20px;
@@ -1017,7 +1088,7 @@
         
         @media (min-width: 768px) {
             .link-section {
-                border-radius: 28px;
+                border-radius: 32px;
                 padding: 28px 32px;
                 margin: 40px 0;
             }
@@ -1037,20 +1108,12 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px;
-            border-radius: 50px;
+            border-radius: 60px;
             background: white;
             border: 1px solid #e2e8f0;
             transition: all 0.25s ease;
             font-size: 13px;
             font-weight: 500;
-        }
-        
-        @media (min-width: 768px) {
-            .social-link {
-                padding: 10px 18px;
-                gap: 8px;
-                font-size: 14px;
-            }
         }
         
         .social-link i {
@@ -1059,19 +1122,19 @@
         }
         
         .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px -4px rgba(99, 102, 241, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px -6px rgba(99, 102, 241, 0.2);
             border-color: #6366f1;
             background: #f8fafc;
         }
         
-        /* FOOTER - DIPERKECIL */
+        /* FOOTER */
         .site-footer {
             background: #0f172a;
             color: #cbd5e1;
-            padding: 24px 0 20px;
-            margin-top: 32px;
-            border-radius: 24px 24px 0 0;
+            padding: 28px 0 20px;
+            margin-top: 30px;
+            border-radius: 28px 28px 0 0;
             transition: background 0.3s ease;
         }
         
@@ -1079,7 +1142,7 @@
             .site-footer {
                 padding: 40px 0 28px;
                 margin-top: 48px;
-                border-radius: 36px 36px 0 0;
+                border-radius: 40px 40px 0 0;
             }
         }
         
@@ -1093,7 +1156,6 @@
         @media (min-width: 640px) {
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 28px;
             }
         }
         
@@ -1132,7 +1194,7 @@
                 padding: 8px;
             }
             .footer-logo span {
-                font-size: 22px;
+                font-size: 20px;
             }
         }
         
@@ -1155,7 +1217,7 @@
         
         .footer-links a:hover {
             color: #a5b4fc;
-            padding-left: 4px;
+            padding-left: 5px;
         }
         
         .footer-bottom {
@@ -1173,7 +1235,7 @@
             }
         }
         
-        /* ===== POPUP CARD - DIPERKECIL ===== */
+        /* ===== POPUP CARD ===== */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -1181,8 +1243,8 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1190,7 +1252,6 @@
             opacity: 1;
             visibility: visible;
             transition: all 0.3s ease;
-            padding: 16px;
         }
         
         .popup-overlay.hidden {
@@ -1202,18 +1263,29 @@
         .popup-card {
             background: white;
             border-radius: 28px;
-            padding: 28px 24px;
-            max-width: 420px;
-            width: 100%;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             position: relative;
             animation: popupZoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        @media (max-width: 480px) {
-            .popup-card {
-                padding: 24px 20px;
+        body.dark-mode .popup-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+        }
+        
+        @keyframes popupZoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
         
@@ -1221,8 +1293,8 @@
             position: absolute;
             top: 16px;
             right: 16px;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: #f1f5f9;
             border: none;
@@ -1232,8 +1304,13 @@
             cursor: pointer;
             transition: all 0.2s ease;
             color: #64748b;
-            font-size: 16px;
+            font-size: 18px;
             -webkit-tap-highlight-color: transparent;
+        }
+        
+        body.dark-mode .popup-close {
+            background: #0f172a;
+            color: #cbd5e1;
         }
         
         .popup-close:hover {
@@ -1242,16 +1319,21 @@
             color: #ef4444;
         }
         
+        body.dark-mode .popup-close:hover {
+            background: #334155;
+            color: #f87171;
+        }
+        
         .popup-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 20px;
         }
         
         .popup-icon {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             border-radius: 16px;
             display: flex;
@@ -1259,17 +1341,28 @@
             justify-content: center;
             color: white;
             font-size: 24px;
-            box-shadow: 0 8px 16px -6px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 20px -8px rgba(99, 102, 241, 0.4);
         }
         
         .popup-header h2 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin: 0;
+        }
+        
+        body.dark-mode .popup-header h2 {
+            background: linear-gradient(135deg, #a5b4fc, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .popup-content {
+            margin-bottom: 14px;
         }
         
         .info-row {
@@ -1280,11 +1373,25 @@
             border-bottom: 1px dashed #e2e8f0;
         }
         
+        body.dark-mode .info-row {
+            border-bottom-color: #334155;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
         .info-label {
             width: 100px;
             font-weight: 600;
             color: #64748b;
             font-size: 14px;
+        }
+        
+        body.dark-mode .info-label {
+            color: #94a3b8;
         }
         
         .info-value {
@@ -1294,6 +1401,10 @@
             font-size: 15px;
         }
         
+        body.dark-mode .info-value {
+            color: #f1f5f9;
+        }
+        
         .popup-footer {
             margin-top: 20px;
             background: linear-gradient(135deg, #f8fafc, #f1f5f9);
@@ -1301,7 +1412,11 @@
             padding: 14px 18px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+        }
+        
+        body.dark-mode .popup-footer {
+            background: #0f172a;
         }
         
         .popup-footer i {
@@ -1315,21 +1430,42 @@
             font-size: 13px;
         }
         
+        body.dark-mode .popup-footer p {
+            color: #cbd5e1;
+        }
+        
+        .popup-footer strong {
+            color: #6366f1;
+        }
+        
         @media (max-width: 480px) {
+            .popup-card {
+                padding: 24px 20px;
+                width: 92%;
+            }
+            
             .popup-header h2 {
                 font-size: 20px;
             }
+            
             .popup-icon {
                 width: 44px;
                 height: 44px;
-                font-size: 22px;
+                font-size: 20px;
             }
+            
+            .info-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
             .info-label {
-                width: 90px;
+                width: 100%;
                 font-size: 13px;
             }
+            
             .info-value {
-                font-size: 14px;
+                font-size: 15px;
             }
         }
         
@@ -1343,10 +1479,23 @@
         a, button {
             -webkit-tap-highlight-color: transparent;
         }
+        
+        .text-primary {
+            color: #6366f1;
+        }
+        
+        .bg-primary {
+            background-color: #6366f1;
+        }
+
+        /* RESPONSIVE SIZE ADJUSTMENT */
+        .responsive-size {
+            transition: all 0.2s ease;
+        }
     </style>
 </head>
 <body>
-    <!-- POPUP CARD SELAMAT DATANG - SELALU MUNCUL -->
+    <!-- POPUP CARD SELAMAT DATANG - SELALU MUNCUL SAAT REFRESH -->
     <div class="popup-overlay" id="welcomePopup">
         <div class="popup-card">
             <button class="popup-close" id="closePopup">
@@ -1417,8 +1566,7 @@
                 </a>
             </div>
             
-            <!-- HEADER RIGHT GROUP - TIDAK BERDEMPETAN -->
-            <div class="header-right">
+            <div style="display: flex; gap: 6px; align-items: center;">
                 <!-- SWITCH TOGGLE DARK/LIGHT -->
                 <div class="theme-switch">
                     <div class="theme-toggle" id="themeToggle" data-tooltip="Ganti Tema">
@@ -1455,7 +1603,7 @@
                 <a href="#kontak" class="dropdown-item">
                     <i class="fas fa-envelope"></i> Kontak
                 </a>
-                <a href="https://github.com/YanaMiku" target="_blank" rel="noopener" class="dropdown-item" style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 8px; padding-top: 14px;">
+                <a href="https://github.com/YanaMiku" target="_blank" rel="noopener" class="dropdown-item" style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 6px; padding-top: 12px;">
                     <i class="fab fa-github"></i> Komunitas GitHub
                 </a>
                 <a href="https://youtube.com/@IyuzakiYanagi" target="_blank" rel="noopener" class="dropdown-item">
@@ -1470,22 +1618,22 @@
         <div class="hero">
             <div class="hero-text">
                 <span class="hero-badge">
-                    <i class="fas fa-circle-info"></i> BLOG GRATIS
+                    <i class="fas fa-circle-info"></i> BLOG GRATIS UNTUK SEMUA
                 </span>
                 <h2>Temukan Informasi Menarik & Artikel Berkualitas</h2>
-                <p>PawBlog adalah platform blog gratis dengan berbagai informasi menarik setiap hari.</p>
+                <p>PawBlog adalah platform blog gratis yang menyajikan berbagai informasi seputar teknologi, lifestyle, hiburan, tips, dan rekomendasi pilihan. Baca artikel terbaru setiap hari!</p>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <a href="#artikel" class="btn-read">
                         <i class="fas fa-arrow-down"></i> Lihat Artikel
                     </a>
                     <a href="#tentang" class="btn-read" style="background: #475569;">
-                        <i class="fas fa-info-circle"></i> Tentang
+                        <i class="fas fa-info-circle"></i> Tentang Kami
                     </a>
                 </div>
             </div>
             <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400" 
-                     alt="Blog gratis" 
+                     alt="Blog gratis, menulis artikel, informasi terkini" 
                      loading="lazy">
             </div>
         </div>
@@ -1496,49 +1644,51 @@
         </h2>
         
         <div class="blog-grid">
-            <!-- ARTIKEL 1: HIBURAN -->
+            <!-- ARTIKEL 1: HIBURAN (Anime Budget) -->
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://imgcdn.espos.id/@espos/images/2023/10/rsz_one_piece.jpg?quality=60" 
-                         alt="Anime budget terbesar" 
+                         alt="Artikel 5 anime dengan budget produksi terbesar" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
                     <i class="fas fa-film"></i> HIBURAN
                 </div>
-                <h2>5 Anime Budget Produksi Terbesar</h2>
+                <h2>5 Anime Dengan Budget Produksi Terbesar Sepanjang Sejarah</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 13 Feb</span>
+                    <span><i class="far fa-calendar"></i> 13 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Tim Riset</span>
                     <span><i class="fas fa-clock"></i> 8 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    Demon Slayer, Attack on Titan, One Piece Film Red, dan lainnya.
+                    Demon Slayer: Infinity Castle (10 miliar yen), Attack on Titan (600 juta yen), One Piece Film Red (3,5 miliar yen). Simak daftar lengkapnya!
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="top-5-anime-termahal.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
             
-            <!-- ARTIKEL 2: REKOMENDASI -->
+            <!-- ARTIKEL 2: REKOMENDASI (Anime Romance) -->
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://jetex.id/blog/wp-content/uploads/2025/08/Anime-Romance-1280x720.jpg" 
-                         alt="Anime romance" 
+                         alt="Rekomendasi 10 anime romance terbaik" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
                     <i class="fas fa-heart"></i> REKOMENDASI
                 </div>
-                <h2>10 Anime Romance Terbaik</h2>
+                <h2>10 Rekomendasi Anime Romance Terbaik Wajib Tonton</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 13 Feb</span>
+                    <span><i class="far fa-calendar"></i> 13 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Redaksi</span>
                     <span><i class="fas fa-clock"></i> 12 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    Your Name, Horimiya, Fruits Basket, Clannad, Toradora, dan lainnya.
+                    Your Name, Kimi ni Todoke, Horimiya, Fruits Basket, Clannad, Kaguya-sama, Toradora, dan lainnya. Lengkap sinopsis & rating.
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="top-10-anime-romance.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
             
@@ -1546,22 +1696,23 @@
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" 
-                         alt="Smartphone" 
+                         alt="Review Smartphone Flagship 2026" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
                     <i class="fas fa-microchip"></i> TEKNOLOGI
                 </div>
-                <h2>5 Smartphone Flagship 2026</h2>
+                <h2>5 Smartphone Flagship 2026 dengan Kamera 200MP</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 12 Feb</span>
+                    <span><i class="far fa-calendar"></i> 12 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Tim Tekno</span>
                     <span><i class="fas fa-clock"></i> 10 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    Samsung S26 Ultra, iPhone 17, Xiaomi 15 Ultra, Google Pixel 10.
+                    Samsung Galaxy S26 Ultra, iPhone 17 Pro Max, Xiaomi 15 Ultra, Google Pixel 10 Pro, OnePlus 13. Review lengkap performa & kualitas kamera.
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="smartphone-flagship-2026.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
             
@@ -1569,22 +1720,23 @@
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400" 
-                         alt="Work Life Balance" 
+                         alt="Tips Work-Life Balance" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
                     <i class="fas fa-leaf"></i> LIFESTYLE
                 </div>
-                <h2>7 Cara Work-Life Balance</h2>
+                <h2>7 Cara Work-Life Balance untuk Generasi Sandwich</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 11 Feb</span>
+                    <span><i class="far fa-calendar"></i> 11 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Dewi Lestari</span>
                     <span><i class="fas fa-clock"></i> 9 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    Atur prioritas, delegasi tugas, quality time, self-care.
+                    Atur prioritas, delegasi tugas, quality time tanpa gadget, self-care wajib, batasi kerja lembur, dan tips manajemen stres.
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="work-life-balance-sandwich.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
             
@@ -1592,54 +1744,71 @@
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400" 
-                         alt="Coding" 
+                         alt="Belajar Coding untuk Pemula" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
-                    <i class="fas fa-code"></i> TUTORIAL
+                    <i class="fas fa-code"></i> TIPS & TUTORIAL
                 </div>
-                <h2>Belajar Coding dari Nol</h2>
+                <h2>Belajar Coding dari Nol: Panduan Lengkap 2026</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 10 Feb</span>
+                    <span><i class="far fa-calendar"></i> 10 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Ahmad Fauzi</span>
                     <span><i class="fas fa-clock"></i> 15 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    Pilih bahasa, roadmap, sumber gratis, portfolio.
+                    Pilih bahasa pemrograman pertama, roadmap belajar, sumber belajar gratis, project portfolio, dan tips masuk industri tech.
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="belajar-coding-pemula.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
             
-            <!-- ARTIKEL 6: HIBURAN -->
+            <!-- ARTIKEL 6: HIBURAN KEDUA -->
             <article class="blog-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=400" 
-                         alt="Drama Korea" 
+                         alt="Rekomendasi Drama Korea Terbaru" 
                          loading="lazy">
                 </div>
                 <div class="card-category">
                     <i class="fas fa-tv"></i> HIBURAN
                 </div>
-                <h2>8 Drama Korea Terbaru 2026</h2>
+                <h2>8 Drama Korea Terbaru 2026 dengan Rating Tertinggi</h2>
                 <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> 9 Feb</span>
+                    <span><i class="far fa-calendar"></i> 9 Feb 2026</span>
+                    <span><i class="fas fa-user"></i> Kinan Putri</span>
                     <span><i class="fas fa-clock"></i> 11 menit</span>
                 </div>
                 <p class="card-excerpt">
-                    The Heirs 2, Queen of Tears, Hospital Playlist 3, Taxi Driver 3.
+                    The Heirs 2, Queen of Tears, Hospital Playlist 3, Taxi Driver 3, dan drakor hits lainnya. Lengkap sinopsis & casting.
                 </p>
-                <a href="#" class="btn-read">
-                    Baca <i class="fas fa-arrow-right"></i>
+                <a href="drama-korea-terbaru-2026.html" class="btn-read">
+                    Baca Artikel <i class="fas fa-arrow-right"></i>
                 </a>
             </article>
+        </div>
+
+        <!-- SECTION ARTIKEL MENDATANG -->
+        <div style="margin-bottom: 30px; padding: 16px; background: white; border-radius: 20px; border: 1px dashed #cbd5e1; text-align: center; transition: background 0.3s ease, border 0.3s ease;">
+            <i class="fas fa-pen-fancy" style="font-size: 28px; color: #6366f1; margin-bottom: 10px;"></i>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #0f172a; transition: color 0.3s ease;">Artikel Lainnya Segera Hadir</h3>
+            <p style="color: #64748b; font-size: 14px; transition: color 0.3s ease;">PawBlog akan terus menambahkan artikel menarik dari berbagai kategori.</p>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 14px; flex-wrap: wrap;">
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-microchip"></i> Teknologi</span>
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-film"></i> Hiburan</span>
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-leaf"></i> Lifestyle</span>
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-utensils"></i> Kuliner</span>
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-plane"></i> Travel</span>
+                <span style="background: #f1f5f9; padding: 5px 12px; border-radius: 60px; font-size: 12px; color: #1e293b;"><i class="fas fa-code"></i> Tutorial</span>
+            </div>
         </div>
 
         <!-- TENTANG PAWBLOG -->
         <div id="tentang" class="info-section">
             <div class="info-text">
-                <h3><i class="fas fa-paw"></i> Tentang PawBlog</h3>
-                <p>Platform blog gratis untuk berbagi informasi berkualitas tanpa biaya.</p>
+                <h3><i class="fas fa-paw" style="color: #6366f1;"></i> Tentang PawBlog</h3>
+                <p>PawBlog adalah platform blog gratis yang didedikasikan untuk berbagi informasi berkualitas. Kami percaya bahwa pengetahuan dan hiburan harus dapat diakses oleh semua orang tanpa biaya.</p>
             </div>
             <div class="stats">
                 <div class="stats-item">
@@ -1657,22 +1826,22 @@
             </div>
         </div>
         
-        <!-- INFORMASI KONTAK -->
+        <!-- INFORMASI KONTAK & SOCIAL MEDIA -->
         <div id="kontak" class="link-section">
             <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
                 <div>
-                    <h4 style="font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 6px; color: #0f172a;">
+                    <h4 style="font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 6px; color: #0f172a; transition: color 0.3s ease;">
                         <i class="fas fa-envelope" style="color: #6366f1;"></i> Hubungi Kami
                     </h4>
-                    <p style="color: #475569; margin-top: 6px; font-size: 14px;">
+                    <p style="color: #475569; margin-top: 6px; font-size: 14px; transition: color 0.3s ease;">
                         <a href="mailto:redaksi@pawblog.id" style="color: #6366f1; text-decoration: none;">redaksi@pawblog.id</a>
                     </p>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/YanaMiku" target="_blank" class="social-link">
+                    <a href="https://github.com/YanaMiku" target="_blank" rel="noopener" class="social-link">
                         <i class="fab fa-github"></i> YanaMiku
                     </a>
-                    <a href="https://youtube.com/@IyuzakiYanagi" target="_blank" class="social-link">
+                    <a href="https://youtube.com/@IyuzakiYanagi" target="_blank" rel="noopener" class="social-link">
                         <i class="fab fa-youtube"></i> @IyuzakiYanagi
                     </a>
                 </div>
@@ -1688,12 +1857,12 @@
                         <i class="fas fa-paw"></i>
                         <span>PawBlog</span>
                     </div>
-                    <p style="color: #94a3b8; font-size: 13px; max-width: 260px;">Blog gratis untuk semua. Informasi menarik, tips bermanfaat.</p>
+                    <p style="color: #94a3b8; font-size: 13px; max-width: 260px;">Blog gratis untuk semua. Menyajikan informasi menarik, tips bermanfaat, dan rekomendasi pilihan.</p>
                     <div style="display: flex; gap: 14px; margin-top: 16px;">
-                        <a href="https://github.com/YanaMiku" target="_blank" style="color: #94a3b8; font-size: 18px;">
+                        <a href="https://github.com/YanaMiku" target="_blank" rel="noopener" style="color: #94a3b8; font-size: 18px; transition: color 0.2s;">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://youtube.com/@IyuzakiYanagi" target="_blank" style="color: #94a3b8; font-size: 18px;">
+                        <a href="https://youtube.com/@IyuzakiYanagi" target="_blank" rel="noopener" style="color: #94a3b8; font-size: 18px; transition: color 0.2s;">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -1703,43 +1872,49 @@
                     <h4>Navigasi</h4>
                     <a href="index.html">Beranda</a>
                     <a href="#artikel">Artikel</a>
-                    <a href="#tentang">Tentang</a>
+                    <a href="#tentang">Tentang Kami</a>
                     <a href="#kontak">Kontak</a>
+                    <a href="#">Kebijakan Privasi</a>
                 </div>
                 <div class="footer-links">
                     <h4>Kategori</h4>
                     <a href="#">Teknologi</a>
                     <a href="#">Hiburan</a>
                     <a href="#">Lifestyle</a>
-                    <a href="#">Tutorial</a>
+                    <a href="#">Tips & Tutorial</a>
                     <a href="#">Rekomendasi</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>PawBlog - Platform blog gratis</p>
+                <p>PawBlog - Platform blog gratis. Semua artikel dapat dibaca tanpa biaya.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // POPUP CARD - SELALU MUNCUL SAAT REFRESH (TANPA SESSION)
         document.addEventListener('DOMContentLoaded', function() {
-            // POPUP - SELALU MUNCUL
             const popup = document.getElementById('welcomePopup');
             const closeBtn = document.getElementById('closePopup');
             
+            // Pastikan popup muncul setiap kali halaman dimuat
             popup.classList.remove('hidden');
             
-            closeBtn.addEventListener('click', function() {
-                popup.classList.add('hidden');
-            });
+            // Tombol close popup
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    popup.classList.add('hidden');
+                });
+            }
             
+            // Klik di luar popup untuk close
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
                     popup.classList.add('hidden');
                 }
             });
             
-            // DROPDOWN MENU
+            // DROPDOWN MENU TOGGLE
             const menuToggle = document.getElementById('menuToggle');
             const dropdownMenu = document.getElementById('dropdownMenu');
             
@@ -1756,21 +1931,35 @@
                         dropdownMenu.classList.remove('show');
                     }
                 });
+                
+                dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        dropdownMenu.classList.remove('show');
+                    });
+                });
             }
             
-            // DARK MODE
+            // DARK/LIGHT MODE TOGGLE
             const themeToggle = document.getElementById('themeToggle');
             
+            // Cek preferensi theme dari localStorage
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
             }
             
             themeToggle.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
-                localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+                
+                // Simpan preferensi theme
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
             });
             
-            // SMOOTH SCROLL
+            // SMOOTH SCROLL UNTUK ANCHOR LINKS
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -1778,14 +1967,144 @@
                         e.preventDefault();
                         const target = document.querySelector(href);
                         if (target) {
+                            const headerOffset = 60;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
                             window.scrollTo({
-                                top: target.offsetTop - 60,
+                                top: offsetPosition,
                                 behavior: 'smooth'
                             });
                         }
                     }
                 });
             });
+            
+            // RESPONSIVE SIZE ADJUSTMENT - REAL TIME
+            function adjustSize() {
+                const width = window.innerWidth;
+                const header = document.querySelector('.site-header');
+                const navIcons = document.querySelectorAll('.nav-icon');
+                const communityBtn = document.querySelector('.btn-community');
+                const themeBtn = document.querySelector('.theme-toggle');
+                const menuBtn = document.querySelector('.menu-toggle');
+                const logo = document.querySelector('.logo h1');
+                const logoSpan = document.querySelector('.logo span');
+                const logoIcon = document.querySelector('.logo i');
+                
+                if (width <= 480) {
+                    // Ultra small devices
+                    if (navIcons.length) {
+                        navIcons.forEach(icon => {
+                            icon.style.width = '32px';
+                            icon.style.height = '32px';
+                            icon.style.fontSize = '14px';
+                        });
+                    }
+                    if (communityBtn) {
+                        communityBtn.style.width = '32px';
+                        communityBtn.style.height = '32px';
+                        communityBtn.style.fontSize = '14px';
+                    }
+                    if (themeBtn) {
+                        themeBtn.style.width = '32px';
+                        themeBtn.style.height = '32px';
+                        themeBtn.style.fontSize = '14px';
+                    }
+                    if (menuBtn) {
+                        menuBtn.style.width = '32px';
+                        menuBtn.style.height = '32px';
+                        menuBtn.style.fontSize = '14px';
+                    }
+                    if (logo) {
+                        logo.style.fontSize = '15px';
+                    }
+                    if (logoSpan) {
+                        logoSpan.style.fontSize = '9px';
+                    }
+                    if (logoIcon) {
+                        logoIcon.style.fontSize = '16px';
+                        logoIcon.style.padding = '4px';
+                    }
+                } else if (width > 480 && width <= 640) {
+                    // Small devices
+                    if (navIcons.length) {
+                        navIcons.forEach(icon => {
+                            icon.style.width = '34px';
+                            icon.style.height = '34px';
+                            icon.style.fontSize = '15px';
+                        });
+                    }
+                    if (communityBtn) {
+                        communityBtn.style.width = '34px';
+                        communityBtn.style.height = '34px';
+                        communityBtn.style.fontSize = '15px';
+                    }
+                    if (themeBtn) {
+                        themeBtn.style.width = '34px';
+                        themeBtn.style.height = '34px';
+                        themeBtn.style.fontSize = '15px';
+                    }
+                    if (menuBtn) {
+                        menuBtn.style.width = '34px';
+                        menuBtn.style.height = '34px';
+                        menuBtn.style.fontSize = '15px';
+                    }
+                    if (logo) {
+                        logo.style.fontSize = '17px';
+                    }
+                    if (logoSpan) {
+                        logoSpan.style.fontSize = '11px';
+                    }
+                    if (logoIcon) {
+                        logoIcon.style.fontSize = '18px';
+                        logoIcon.style.padding = '5px';
+                    }
+                } else {
+                    // Reset to default (handled by CSS)
+                    if (navIcons.length) {
+                        navIcons.forEach(icon => {
+                            icon.style.width = '';
+                            icon.style.height = '';
+                            icon.style.fontSize = '';
+                        });
+                    }
+                    if (communityBtn) {
+                        communityBtn.style.width = '';
+                        communityBtn.style.height = '';
+                        communityBtn.style.fontSize = '';
+                    }
+                    if (themeBtn) {
+                        themeBtn.style.width = '';
+                        themeBtn.style.height = '';
+                        themeBtn.style.fontSize = '';
+                    }
+                    if (menuBtn) {
+                        menuBtn.style.width = '';
+                        menuBtn.style.height = '';
+                        menuBtn.style.fontSize = '';
+                    }
+                    if (logo) {
+                        logo.style.fontSize = '';
+                    }
+                    if (logoSpan) {
+                        logoSpan.style.fontSize = '';
+                    }
+                    if (logoIcon) {
+                        logoIcon.style.fontSize = '';
+                        logoIcon.style.padding = '';
+                    }
+                }
+            }
+            
+            // Panggil saat load dan resize
+            adjustSize();
+            window.addEventListener('resize', adjustSize);
+            
+            // TOOLTIP UNTUK THEME TOGGLE (DESKTOP)
+            if (window.innerWidth >= 1024) {
+                themeToggle.setAttribute('data-tooltip', 'Ganti Tema');
+            }
         });
     </script>
 </body>
